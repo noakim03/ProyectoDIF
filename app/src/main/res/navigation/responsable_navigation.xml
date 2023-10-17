@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/responsable_navigation"
+    app:startDestination="@id/inicioResponsableFrag">
+
+    <fragment
+        android:id="@+id/inicioResponsableFrag"
+        android:name="mx.itesm.proyectodif.ui_responsable.view.InicioResponsableFrag"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_inicio_responsable">
+        <action
+            android:id="@+id/action_inicioResponsableFrag_to_registrarRacionesFrag2"
+            app:destination="@id/registrarRacionesFrag2" />
+        <action
+            android:id="@+id/action_inicioResponsableFrag_to_racionDonadaFrag2"
+            app:destination="@id/racionDonadaFrag2" />
+        <action
+            android:id="@+id/action_inicioResponsableFrag_to_registroIncidenciasFrag2"
+            app:destination="@id/registroIncidenciasFrag2" />
+        <action
+            android:id="@+id/action_inicioResponsableFrag_to_pedidoParaFrag"
+            app:destination="@id/pedidoParaFrag" />
+        <action
+            android:id="@+id/action_inicioResponsableFrag_to_registroRacionesConQRFrag"
+            app:destination="@id/registroRacionesConQRFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrarRacionesFrag2"
+        android:name="mx.itesm.proyectodif.ui_responsable.view.RegistrarRacionesFrag"
+        android:label="Registro de raciones"
+        tools:layout="@layout/fragment_registrar_raciones">
+        <action
+            android:id="@+id/action_registrarRacionesFrag2_to_registradoFrag"
+            app:destination="@id/registradoFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/racionDonadaFrag2"
+        android:name="mx.itesm.proyectodif.ui_responsable.view.RacionDonadaFrag"
+        android:label="Donar raciones"
+        tools:layout="@layout/fragment_racion_donada">
+        <action
+            android:id="@+id/action_racionDonadaFrag2_to_registradoFrag2"
+            app:destination="@id/registradoFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/registroIncidenciasFrag2"
+        android:name="mx.itesm.proyectodif.ui_responsable.view.RegistroIncidenteFrag"
+        android:label="Registrar incidencias"
+        tools:layout="@layout/fragment_registro_incidencias">
+        <action
+            android:id="@+id/action_registroIncidenciasFrag2_to_registradoFrag"
+            app:destination="@id/registradoFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/registradoFrag"
+        android:name="mx.itesm.proyectodif.ui_responsable.view.RegistradoFrag"
+        tools:layout="@layout/fragment_registrado">
+        <action
+            android:id="@+id/action_registradoFrag_to_inicioResponsableFrag"
+            app:destination="@id/inicioResponsableFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/registroRacionesConQRFrag"
+        android:name="mx.itesm.proyectodif.ui_responsable.view.RegistroRacionesConQRFrag"
+        android:label="Registro de raciones con QR"
+        tools:layout="@layout/fragment_registro_raciones_con_q_r">
+        <argument
+            android:name="scannedText"
+            app:argType="string"
+            android:defaultValue=""
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/pedidoParaFrag"
+        android:name="mx.itesm.proyectodif.ui_responsable.view.PedidoParaFrag"
+        android:label="Registro de raciones para otros"
+        tools:layout="@layout/fragment_pedido_para">
+        <action
+            android:id="@+id/action_pedidoParaFrag_to_registradoFrag"
+            app:destination="@id/registradoFrag" />
+    </fragment>
+    <activity
+        android:id="@+id/loginResponsableActivity"
+        android:name="mx.itesm.proyectodif.LoginResponsableActivity"
+        android:label="activity_login_responsable"
+        tools:layout="@layout/activity_login_responsable" />
+</navigation>

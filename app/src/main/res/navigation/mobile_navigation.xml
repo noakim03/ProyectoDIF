@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navegacion_inicio">
+
+    <fragment
+        android:id="@+id/navegacion_inicio"
+        android:name="mx.itesm.proyectodif.ui_comensal.view.InicioFrag"
+        android:label="@string/menu_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_navegacion_inicio_to_codigoQRFrag"
+            app:destination="@id/codigoQRFrag" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navegacion_mapa"
+        android:name="mx.itesm.proyectodif.ui_comensal.view.MapaFrag"
+        android:label="@string/menu_mapa"
+        tools:layout="@layout/fragment_mapa" />
+
+    <fragment
+        android:id="@+id/navegacion_info"
+        android:name="mx.itesm.proyectodif.ui_comensal.view.InfoFrag"
+        android:label="@string/menu_info"
+        tools:layout="@layout/fragment_informacion" >
+        <action
+            android:id="@+id/action_navegacion_info_to_calificarServicioFrag"
+            app:destination="@id/calificarServicioFrag" />
+        <action
+            android:id="@+id/action_navegacion_info_to_datoContactoFrag2"
+            app:destination="@id/datoContactoFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginComensalFrag"
+        android:name="mx.itesm.proyectodif.ui_comensal.view.LoginComensalFrag"
+        android:label="fragment_login_comensal"
+        tools:layout="@layout/fragment_login_comensal" />
+    <fragment
+        android:id="@+id/mapsFragment2"
+        android:name="mx.itesm.proyectodif.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/codigoQRFrag"
+        android:name="mx.itesm.proyectodif.ui_comensal.view.CodigoQRFrag"
+        android:label="Mi código QR"
+        tools:layout="@layout/fragment_codigo_q_r" />
+    <fragment
+        android:id="@+id/calificarServicioFrag"
+        android:name="mx.itesm.proyectodif.ui_comensal.view.CalificarServicioFrag"
+        android:label="Calificar el servicio"
+        tools:layout="@layout/fragment_calificar_servicio" />
+    <fragment
+        android:id="@+id/datoContactoFrag"
+        android:name="mx.itesm.proyectodif.ui_comensal.view.DatoContactoFrag"
+        android:label="Datos de contacto"
+        tools:layout="@layout/fragment_dato_contacto" />
+    <activity
+        android:id="@+id/loginComensalActivity"
+        android:name="mx.itesm.proyectodif.LoginComensalActivity"
+        android:label="activity_login_comensal"
+        tools:layout="@layout/activity_login_comensal" >
+        <argument
+            android:name="idUsuario"
+            app:argType="string" />
+    </activity>
+</navigation>

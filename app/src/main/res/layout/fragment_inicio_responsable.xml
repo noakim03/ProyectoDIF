@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="fragment_inicioResp"
+    tools:context=".ui_responsable.view.InicioResponsableFrag">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvIDResp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:fontFamily="@font/inria_sans_bold"
+                    android:gravity="center|start"
+                    android:paddingLeft="25dp"
+                    android:text="Mi ID:"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/btnLogOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@null"
+                    android:src="@drawable/ic_round_logout" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAgregarQR"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_botton3"
+                android:drawableLeft="@drawable/ic_qr_code_scanner"
+                android:fontFamily="@font/inria_sans_bold"
+                android:padding="25dp"
+                android:text="Registro de Raciones con Código QR"
+                android:textSize="18sp"
+                android:onClick="startQRScanner"
+                app:backgroundTint="@color/morado" />
+
+            <Button
+                android:id="@+id/btnRaciones"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_botton3"
+                android:drawableLeft="@drawable/ic_outline_food_bank"
+                android:fontFamily="@font/inria_sans_bold"
+                android:padding="25dp"
+                android:text="Raciones para no registrados"
+                android:textSize="18sp"
+                app:backgroundTint="@color/rosa" />
+
+            <Button
+                android:id="@+id/btnRacionesPara"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_botton3"
+                android:drawableLeft="@drawable/ic_outline_food_bank"
+                android:fontFamily="@font/inria_sans_bold"
+                android:padding="25dp"
+                android:text="Llevar raciones para otros"
+                android:textSize="18sp"
+                app:backgroundTint="@color/azul" />
+
+            <Button
+                android:id="@+id/btnRacionDonada"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_botton3"
+                android:drawableLeft="@drawable/ic_donar"
+                android:fontFamily="@font/inria_sans_bold"
+                android:padding="25dp"
+                android:text="Donar raciones"
+                android:textSize="18sp"
+                app:backgroundTint="@color/verde" />
+
+
+            <Button
+                android:id="@+id/btnIncidencias"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/custom_botton3"
+                android:drawableLeft="@drawable/ic_round_warning_amber"
+                android:fontFamily="@font/inria_sans_bold"
+                android:padding="25dp"
+                android:text="Registro de incidente"
+                android:textSize="18sp"
+                app:backgroundTint="@color/btnrosa" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
