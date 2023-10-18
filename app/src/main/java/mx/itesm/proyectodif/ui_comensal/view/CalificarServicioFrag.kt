@@ -68,6 +68,7 @@ class CalificarServicioFrag : Fragment() {
             val arrServicios =  lista.toTypedArray()
             binding.spComedor.adapter = ArrayAdapter(requireContext(),
                 R.layout.spinner_items_customed, arrServicios)
+
             // Apagar el progress bar
             // binding.pbDescarga.visibility = View.INVISIBLE
         }

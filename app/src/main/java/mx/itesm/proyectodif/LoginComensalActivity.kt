@@ -98,13 +98,6 @@ class LoginComensalActivity : AppCompatActivity() {
 
     private fun postData(id: String, pass: String) {
 
-        val usuario = binding.etUsuario.text.toString()
-        val psw = binding.etPassword.text.toString()
-
-        val gson = GsonBuilder()
-            .setLenient()
-            .create()
-
         // Crear una instancia de Retrofit
         val retrofit = Retrofit.Builder()
             .baseUrl("http://54.197.177.119:8080") // Reemplaza con la URL de tu servidor

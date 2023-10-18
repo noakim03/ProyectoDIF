@@ -18,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import mx.itesm.proyectodif.LoginComensalActivity
 import mx.itesm.proyectodif.LoginResponsableActivity
+import mx.itesm.proyectodif.PDFActivity
 import mx.itesm.proyectodif.databinding.FragmentInformacionBinding
 import mx.itesm.proyectodif.ui_comensal.viewmodel.InfoVM
 import mx.itesm.proyectodif.ui_comensal.viewmodel.MapaVM
@@ -84,7 +85,16 @@ class InfoFrag : Fragment() {
 
     private fun registrarEventos() {
         binding.btnPrivacidad.setOnClickListener {
+            // Especifica el nombre de tu archivo PDF en la carpeta de activos
+            val pdfFileName = "Aviso_privacidad.pdf"
 
+            // Construye la URI para el archivo PDF en la carpeta de activos
+            val uri = Uri.parse("file:///android_asset/$pdfFileName")
+
+            // Crea un intent para abrir la actividad PDFActivity y pasa la URI
+            val intent = Intent(requireContext(), PDFActivity::class.java)
+            intent.putExtra("PDF_URI", uri)
+            startActivity(intent)
         }
         binding.btnContacto.setOnClickListener {
             val accion = InfoFragDirections.actionNavegacionInfoToDatoContactoFrag2()
