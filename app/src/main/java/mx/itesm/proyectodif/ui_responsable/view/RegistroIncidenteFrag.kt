@@ -1,5 +1,6 @@
 package mx.itesm.proyectodif.ui_responsable.view
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -55,7 +56,9 @@ class RegistroIncidenteFrag : Fragment() {
 
     private fun registrarEventos() {
         binding.btnEnviar.setOnClickListener {
-            val usuario = requireActivity().intent.getStringExtra("ID_RESP")
+            //val usuario = requireActivity().intent.getStringExtra("ID_RESP")
+            val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val usuario = sharedPreferences.getString("ID_RESP", "")
             val idRes = usuario!!.toInt()
             //tvIDResp.text = "Mi ID: $usuario"  // Cambiar texto del tvID
             println("$idRes reportó un incidente")
@@ -72,13 +75,6 @@ class RegistroIncidenteFrag : Fragment() {
                 // Alguno de los campos está vacío
                 Toast.makeText(context, "Por favor, complete el campo", Toast.LENGTH_SHORT).show()
             }
-
-
-
-
-
-
-
         }
         viewModel.incidenteEnviadaLiveData.observe(viewLifecycleOwner) { incidenteEnviada ->
             if (incidenteEnviada) {
