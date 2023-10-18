@@ -1,5 +1,7 @@
 package mx.itesm.proyectodif
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.View
@@ -32,6 +34,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -55,11 +60,16 @@ class MainActivity : AppCompatActivity() {
         // Pasar datos
         //val usuario = intent.getStringExtra("EXTRA_USER")
         //Toast.makeText(this,"ID Usuario: " + usuario, Toast.LENGTH_LONG).show()
+        /*
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
 
-
-
-
-
+        if (!isLoggedIn) {
+            // La sesión no está activa, redirige a la LoginActivity.
+            val intent = Intent(this, LoginComensalActivity::class.java)
+            startActivity(intent)
+            finish()
+        }*/
         // Generar código QR
 
 
@@ -74,4 +84,6 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp()
                 || super.onSupportNavigateUp()
     }
+
+
 }

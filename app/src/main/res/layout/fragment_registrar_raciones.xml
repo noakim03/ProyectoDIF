@@ -47,18 +47,18 @@
                 android:padding="10dp"
                 android:text="ID:"
                 android:textAlignment="textEnd"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tvIdDesignado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="43"
                 android:fontFamily="@font/inria_sans_bold"
                 android:padding="10dp"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:text="43"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

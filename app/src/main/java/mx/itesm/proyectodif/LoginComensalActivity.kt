@@ -48,6 +48,23 @@ class LoginComensalActivity : AppCompatActivity() {
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(rootView.windowToken, 0)
         }
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+        val isLoggedInR = sharedPreferences.getBoolean("isLoggedInR", false)
+
+        if (isLoggedIn) {
+
+            // El usuario no ha iniciado sesión previamente, redirige a la loginActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        if (isLoggedInR){
+            val intent = Intent(this, MenuResponsableActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
         registrarEventos()
     }
@@ -70,7 +87,7 @@ class LoginComensalActivity : AppCompatActivity() {
             myImageView.setImageBitmap(bitmap)*/
         }
         binding.btnRegistrar.setOnClickListener {
-            val url = Uri.parse("https://google.com")
+            val url = Uri.parse("http://127.0.0.1:5500/registro.html") //PagWeb
             val intNavegador = Intent(Intent.ACTION_VIEW, url)
             startActivity(intNavegador)
         }
@@ -93,52 +110,6 @@ class LoginComensalActivity : AppCompatActivity() {
             .baseUrl("http://54.197.177.119:8080") // Reemplaza con la URL de tu servidor
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-/*
-        /*// Crear JSONObject
-        val jsonObject = JSONObject()
-        jsonObject.put("id", usuario)
-        jsonObject.put("pass", psw)
-
-        val jsonObjectString = jsonObject.toString()*/
-        val apiService = retrofit.create(LoginComensalAPI::class.java)
-
-        try {
-            val loginData = JSONObject()
-            loginData.put("id", id.toInt())
-            loginData.put("pass", password)
-
-            val requestBody = RequestBody.create(MediaType.parse("application/json"), loginData.toString())
-
-            val call = apiService.login(requestBody)
-            call.enqueue(object : Callback<LoginResponse> {
-                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                    if (response.isSuccessful) {
-                        // Autenticación exitosa
-                        val responseMessage = response.body() // Puedes obtener la respuesta del servidor si es necesario
-                        if (responseMessage!!.message == "Información correcta") {
-                            // Autenticación exitosa, procede a la siguiente pantalla
-                            Toast.makeText(this@LoginComensalActivity, "Credenciales válidas", Toast.LENGTH_LONG).show()
-                        } else {
-                            // La respuesta no es lo que se esperaba, maneja el error
-                            Toast.makeText(this@LoginComensalActivity, "Usuario o Contraseña incorrectos.", Toast.LENGTH_LONG).show()
-                        }
-                        // Procede a la siguiente pantalla
-                    } else {
-                        // Autenticación falló, muestra un mensaje de error
-                        // response.errorBody() puede contener detalles del error proporcionados por el servidor
-                        // Error en la respuesta del servidor
-                        Toast.makeText(this@LoginComensalActivity, "Error de servidor", Toast.LENGTH_LONG).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                    // Ocurrió un error en la comunicación con el servidor
-                }
-            })
-        } catch (e: JSONException) {
-            // Manejar cualquier error al construir el JSONObject
-        }*/
-
 
         // Crear una instancia del servicio de Retrofit
         val apiService = retrofit.create(LoginComensalAPI::class.java)
@@ -167,6 +138,14 @@ class LoginComensalActivity : AppCompatActivity() {
                             putExtra("ID_COMENSAL", id)
                         }
                         startActivity(i)
+
+                        // Cuando el usuario inicia sesión con éxito
+                        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("ID_COMENSAL", id)
+                        editor.putBoolean("isLoggedIn", true)
+                        editor.apply()
+
                         finish() // Finaliza la actividad de inicio de sesión
                     }
                 } else {
@@ -184,34 +163,12 @@ class LoginComensalActivity : AppCompatActivity() {
 
     }
 
-    private fun menuInicial() {
-        // MainActivity
-
-
-        /*var usuario ="12345"
-        var psw ="c"
-        if (binding.etUsuario.text.toString() == usuario){
-            if (binding.etPassword.text.toString() == psw){
-                Toast.makeText(this,"Iniciando sesion...", Toast.LENGTH_LONG).show()
-                val i = Intent(this, MainActivity::class.java).apply {
-                    putExtra("ID_COMENSAL", usuario)
-                }
-                startActivity(i)
-
-            } else {
-                Toast.makeText(this,"Usuario o Contraseña incorrectos.", Toast.LENGTH_LONG).show()
-            }
-        } else {
-            Toast.makeText(this,"Complete los campos.", Toast.LENGTH_LONG).show()
-        }*/
-
-    }
-
     private fun loginResponsable() {
         // LoginResponsableActivity
         val i = Intent(this, LoginResponsableActivity::class.java)
         startActivity(i)
     }
+
 
 
 }

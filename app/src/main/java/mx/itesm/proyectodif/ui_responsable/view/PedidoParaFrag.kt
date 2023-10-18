@@ -48,11 +48,11 @@ class PedidoParaFrag : Fragment() {
         //return inflater.inflate(R.layout.fragment_pedido_para, container, false)
 
         viewModel = ViewModelProvider(this).get(PedidoParaVM::class.java)
-        binding.etFiltro.addTextChangedListener {userFilter ->
+        /*binding.etFiltro.addTextChangedListener {userFilter ->
             val listaFiltrado =
                 listaComensal.filter { datoComensal -> datoComensal.nombre.lowercase().contains(userFilter.toString().lowercase()) }
             adaptadorComensal?.updateComensal(listaFiltrado)
-        }
+        }*/
 
         binding = FragmentPedidoParaBinding.inflate(layoutInflater)
         val root: View = binding.root
@@ -86,11 +86,11 @@ class PedidoParaFrag : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                filter(newText)
+                //filter(newText)
                 return true
             }
         })
-        binding.rvBuscar.adapter = adaptadorComensal
+        //binding.rvBuscar.adapter = adaptadorComensal
 
         registrarEventos()
         configurarAdaptador()
@@ -100,7 +100,7 @@ class PedidoParaFrag : Fragment() {
 
     // creating a variable for array list and context.
     private val comensalArrayList: ArrayList<Comensal>? = null
-
+/*
     private fun filter(text: String) {
         // creating a new array list to filter our data.
         val filteredlist = ArrayList<Comensal>()
@@ -125,7 +125,7 @@ class PedidoParaFrag : Fragment() {
             // list to our adapter class.
             adaptadorComensal?.filterList(filteredlist)
         }
-    }
+    }*/
 
 
     private fun registrarObservables() {
@@ -150,7 +150,7 @@ class PedidoParaFrag : Fragment() {
             val lugar = "Para Llevar"
 
             // Verificar si todos los campos están llenos
-            if (idCom != 0 && pago.isNotEmpty() && lugar.isNotEmpty()) {
+            if (idComensal != "" && pago.isNotEmpty()) {
                 // Todos los campos están llenos, puedes enviar la información
                 val asistencia = Asistencia(idComensal.toInt(), idCom, pago.toInt(), lugar)
                 viewModel.registroRacion(asistencia)

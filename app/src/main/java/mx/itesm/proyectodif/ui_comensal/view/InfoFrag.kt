@@ -1,5 +1,6 @@
 package mx.itesm.proyectodif.ui_comensal.view
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,9 +15,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import mx.itesm.proyectodif.LoginComensalActivity
 import mx.itesm.proyectodif.LoginResponsableActivity
 import mx.itesm.proyectodif.databinding.FragmentInformacionBinding
 import mx.itesm.proyectodif.ui_comensal.viewmodel.InfoVM
+import mx.itesm.proyectodif.ui_comensal.viewmodel.MapaVM
+
 // VISTA
 /**
  * @author Noh Ah Kim Kwon
@@ -27,6 +32,7 @@ class InfoFrag : Fragment() {
 
     // View binding
     private lateinit var binding: FragmentInformacionBinding
+    private lateinit var viewModel: InfoVM
 
     //private var _binding: FragmentInformacionBinding? = null
 
@@ -42,12 +48,23 @@ class InfoFrag : Fragment() {
         val infoViewModel =
             ViewModelProvider(this).get(InfoVM::class.java)
 
+        viewModel = ViewModelProvider(this).get(InfoVM::class.java)
+
         binding = FragmentInformacionBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val usuario = sharedPreferences.getString("ID_COMENSAL", "")
         //(requireActivity() as AppCompatActivity).supportActionBar?.hide()
-        val usuario = requireActivity().intent.getStringExtra("ID_COMENSAL")
+        //val usuario = requireActivity().intent.getStringExtra("ID_COMENSAL")
         binding.tvID.text = "ID: $usuario"  // Cambiar texto del tvID
+
+        //val idComensal = arguments?.getString("ID_COMENSAL")
+
+       // binding.tvID.text = "ID: $idComensal"  // Cambiar texto del tvID
+
+
 
         /*val textView: TextView = binding.textNotifications
         infoViewModel.text.observe(viewLifecycleOwner) {
@@ -85,9 +102,20 @@ class InfoFrag : Fragment() {
     private fun cerrarSesion() {
         //findNavController().navigate(R.id.loginResponsableActivity)
         // Redirigir al usuario a la pantalla de inicio de sesión.
-        val intent = Intent(requireContext(), LoginResponsableActivity::class.java)
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isLoggedIn", false)
+        editor.apply()
+
+
+        val intent = Intent(requireContext(), LoginComensalActivity::class.java)
         startActivity(intent)
         requireActivity().finish() // Opcional: Cierra la actividad actual para que el usuario no pueda volver atrás.
+        //val intLogin=......
+        //startActivity(....)
+        //finish()
+        //regresar y poner pantalla de login
+
         // Posiblemente no he cerrado la sesión
     }
 
@@ -112,6 +140,8 @@ class InfoFrag : Fragment() {
         val dialog = builder.create()
         dialog.show()
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

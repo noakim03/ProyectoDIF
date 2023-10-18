@@ -21,7 +21,7 @@
         <ImageView
             android:id="@+id/ivCodigoQR"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="400dp"
             android:layout_margin="10dp" />
 
         <LinearLayout
@@ -38,16 +38,6 @@
                 android:layout_margin="4dp"
                 android:fontFamily="@font/inria_sans_bold"
                 android:text="ID: 21"
-                android:textAlignment="center"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:fontFamily="@font/inria_sans_bold"
-                android:text="Nombre de usuario"
                 android:textAlignment="center"
                 android:textSize="22sp" />
 

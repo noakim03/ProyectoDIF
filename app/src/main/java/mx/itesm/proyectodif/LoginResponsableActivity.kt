@@ -38,6 +38,17 @@ class LoginResponsableActivity : AppCompatActivity() {
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(rootView.windowToken, 0)
         }
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedInR", false)
+
+        if (isLoggedIn) {
+            val userID = sharedPreferences.getString("userID", "") // Recuperar el ID del usuario
+            // El usuario no ha iniciado sesión previamente, redirige a la loginActivity
+            val intent = Intent(this, MenuResponsableActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
         registrarEventos()
 
@@ -87,10 +98,20 @@ class LoginResponsableActivity : AppCompatActivity() {
                     if ((loginResponse != null) && (loginResponse.mensaje == "Información correcta")) {
                         // La autenticación fue exitosa, puedes proceder a la siguiente pantalla
                         // Credenciales válidas, inicia la actividad MainActivity
+
                         val i = Intent(this@LoginResponsableActivity, MenuResponsableActivity::class.java).apply {
                             putExtra("ID_RESP", id)
                         }
                         startActivity(i)
+
+                        // Cuando el usuario inicia sesión con éxito
+                        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("ID_RESP", id)
+                        editor.putBoolean("isLoggedInR", true)
+                        editor.apply()
+
+
                         finish() // Finaliza la actividad de inicio de sesión
                     }
                 } else {
@@ -107,29 +128,13 @@ class LoginResponsableActivity : AppCompatActivity() {
         })
     }
 
-    private fun menuInicial() {
-        // MenuResponsableActivity
-        var usuario ="123"
-        var psw ="r"
-        if (binding.etResponsable.text.toString() == usuario){
-            if (binding.etPasswordR.text.toString() == psw){
-                Toast.makeText(this,"Iniciando sesion...", Toast.LENGTH_LONG).show()
-                val i = Intent(this, MenuResponsableActivity::class.java).apply {
-                    putExtra("ID_RESP", usuario)
-                }
-                startActivity(i)
-            } else {
-                Toast.makeText(this,"Usuario o Contraseña incorrectos.", Toast.LENGTH_LONG).show()
-            }
-        } else {
-            Toast.makeText(this,"Complete los campos.", Toast.LENGTH_LONG).show()
-        }
-    }
     private fun loginComensal() {
         // LoginResponsableActivity
         val i = Intent(this, LoginComensalActivity::class.java)
         startActivity(i)
     }
+
+
 
 
 }

@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import mx.itesm.proyectodif.databinding.FragmentRegistroIncidenciasBinding
 import mx.itesm.proyectodif.ui_comensal.viewmodel.CalificarServicioVM
+import mx.itesm.proyectodif.ui_responsable.model.Asistencia
 import mx.itesm.proyectodif.ui_responsable.model.Incidente
 import mx.itesm.proyectodif.ui_responsable.viewmodel.RegistroIncidenteVM
 
@@ -59,20 +62,45 @@ class RegistroIncidenteFrag : Fragment() {
             //idRes, incidente
             val incidente = binding.etIncidente.text.toString()
 
-            val reportarIncidente = Incidente(idRes, incidente)
+            // Verificar si todos los campos están llenos
+            if (incidente != "") {
+                val reportarIncidente = Incidente(idRes, incidente)
+                // viewmodel
+                viewModel.enviarIncidente(reportarIncidente)
 
-            // viewmodel
-            viewModel.enviarIncidente(reportarIncidente)
+            } else {
+                // Alguno de los campos está vacío
+                Toast.makeText(context, "Por favor, complete el campo", Toast.LENGTH_SHORT).show()
+            }
+
+
+
+
+
 
 
         }
         viewModel.incidenteEnviadaLiveData.observe(viewLifecycleOwner) { incidenteEnviada ->
             if (incidenteEnviada) {
                 // Pasar a la pantalla "Registrado"
-                val accion = RegistroIncidenteFragDirections.actionRegistroIncidenciasFrag2ToRegistradoFrag()
-                findNavController().navigate(accion)
+                //val accion = RegistroIncidenteFragDirections.actionRegistroIncidenciasFrag2ToRegistradoFrag()
+                //findNavController().navigate(accion)
+                mostrarAlertaExito()
             }
         }
+    }
+
+    private fun mostrarAlertaExito() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Registro de incidente")
+        builder.setMessage("Reportado con éxito")
+
+        builder.setPositiveButton("Aceptar") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val alertDialog = builder.create()
+        alertDialog.show()
     }
 
 }

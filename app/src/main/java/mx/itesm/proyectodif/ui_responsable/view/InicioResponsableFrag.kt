@@ -1,5 +1,6 @@
 package mx.itesm.proyectodif.ui_responsable.view
 
+import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -44,7 +45,10 @@ class InicioResponsableFrag : Fragment() {
 
         //val view = inflater.inflate(R.layout.fragment_inicio_responsable, container, false)
         //val tvIDResp: TextView = root.findViewById(R.id.tvIDResp)
-        val usuario = requireActivity().intent.getStringExtra("ID_RESP")
+
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val usuario = sharedPreferences.getString("ID_RESP", "")
+        //val usuario = requireActivity().intent.getStringExtra("ID_RESP")
         //tvIDResp.text = "Mi ID: $usuario"  // Cambiar texto del tvID
         binding.tvIDResp.text = "Mi ID: $usuario"
 
@@ -131,7 +135,13 @@ class InicioResponsableFrag : Fragment() {
     private fun cerrarSesion() {
         //findNavController().navigate(R.id.loginResponsableActivity)
         // Redirigir al usuario a la pantalla de inicio de sesión.
-        val intent = Intent(requireContext(), LoginComensalActivity::class.java)
+
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isLoggedInR", false)
+        editor.apply()
+
+        val intent = Intent(requireContext(), LoginResponsableActivity::class.java)
         startActivity(intent)
         requireActivity().finish() // Opcional: Cierra la actividad actual para que el usuario no pueda volver atrás.
         // Posiblemente no he cerrado la sesión

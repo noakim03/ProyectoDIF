@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import mx.itesm.proyectodif.R
 import mx.itesm.proyectodif.databinding.FragmentRacionDonadaBinding
 import mx.itesm.proyectodif.ui_comensal.model.ListaComedor
+import mx.itesm.proyectodif.ui_responsable.model.Asistencia
 import mx.itesm.proyectodif.ui_responsable.model.RacionDon
 import mx.itesm.proyectodif.ui_responsable.viewmodel.RacionDonadaVM
 
@@ -73,10 +74,19 @@ class RacionDonadaFrag : Fragment() {
         binding.btnDonar.setOnClickListener {
             val selectedComedor = binding.spComedor.selectedItem as ListaComedor
             val idCom = selectedComedor.idCom
-            val idComensal = binding.etIDCom.text.toString().toInt()
+            val idComensal = binding.etIDCom.text.toString()
 
-            val donar = RacionDon(idCom, idComensal)
-            viewModel.enviarRacionDonada(donar)
+            // Verificar si todos los campos están llenos
+            if (idComensal != "") {
+                val donar = RacionDon(idCom, idComensal.toInt())
+                viewModel.enviarRacionDonada(donar)
+            } else {
+                // Alguno de los campos está vacío
+                Toast.makeText(context, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
+            }
+
+
+
 
             //val accion = RacionDonadaFragDirections.actionRacionDonadaFrag2ToRegistradoFrag()
             //findNavController().navigate(accion)

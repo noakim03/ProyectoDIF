@@ -41,6 +41,7 @@ class MenuResponsableActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+
         //binding = ActivityMenuResponsableBinding.inflate(layoutInflater)
         //setContentView(binding.root)
 
@@ -51,6 +52,27 @@ class MenuResponsableActivity : AppCompatActivity() {
         //registrarEventos()
         //replaceFragment(InicioResponsableFrag())
 
+    }
+
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+            // Check which radio button was clicked
+            when (view.getId()) {
+                R.id.btnComer ->
+                    if (checked) {
+                        Toast.makeText(this, "Para comer", Toast.LENGTH_SHORT).show()
+
+                    }
+                R.id.btnLlevar ->
+                    if (checked) {
+                        Toast.makeText(this, "Para llevar", Toast.LENGTH_SHORT).show()
+
+                    }
+            }
+        }
     }
 
 

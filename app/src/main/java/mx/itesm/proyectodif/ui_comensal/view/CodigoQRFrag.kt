@@ -1,5 +1,6 @@
 package mx.itesm.proyectodif.ui_comensal.view
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -47,11 +48,15 @@ class CodigoQRFrag : Fragment() {
         //val view = inflater.inflate(R.layout.fragment_codigo_q_r, container, false)
         val myImageView: ImageView = root.findViewById(R.id.ivCodigoQR)
         //val tvID: TextView = root.findViewById(R.id.tvID)
-        val usuario = requireActivity().intent.getStringExtra("ID_COMENSAL")
+
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val usuario = sharedPreferences.getString("ID_COMENSAL", "")
+
+        //val usuario = requireActivity().intent.getStringExtra("ID_COMENSAL")
         binding.tvID.text = "ID: $usuario"  // Cambiar texto del tvID
         //binding.tvID.text = "ID: $usuario"  // Cambiar texto del tvID
         val encoder = BarcodeEncoder()
-        val bitmap = encoder.encodeBitmap(usuario, BarcodeFormat.QR_CODE, 400, 400)
+        val bitmap = encoder.encodeBitmap(usuario, BarcodeFormat.QR_CODE, 500, 500)
         myImageView.setImageBitmap(bitmap)
 
         return root
