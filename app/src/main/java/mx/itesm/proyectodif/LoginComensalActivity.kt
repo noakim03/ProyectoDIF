@@ -87,7 +87,7 @@ class LoginComensalActivity : AppCompatActivity() {
             myImageView.setImageBitmap(bitmap)*/
         }
         binding.btnRegistrar.setOnClickListener {
-            val url = Uri.parse("http://127.0.0.1:5500/registro.html") //PagWeb
+            val url = Uri.parse("http://54.197.177.119:8080/comedor/registro.html") //PagWeb
             val intNavegador = Intent(Intent.ACTION_VIEW, url)
             startActivity(intNavegador)
         }
