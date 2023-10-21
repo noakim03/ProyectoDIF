@@ -13,7 +13,12 @@ import mx.itesm.proyectodif.R
 import mx.itesm.proyectodif.databinding.FragmentMapaBinding
 import mx.itesm.proyectodif.ui_comensal.viewmodel.CalificarServicioVM
 import mx.itesm.proyectodif.ui_comensal.viewmodel.MapaVM
-
+// VISTA
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Controla la vista del fragmento mapa
+ */
 class MapaFrag : Fragment() {
 
     private var _binding: FragmentMapaBinding? = null

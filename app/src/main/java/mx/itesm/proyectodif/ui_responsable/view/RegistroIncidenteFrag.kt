@@ -78,9 +78,6 @@ class RegistroIncidenteFrag : Fragment() {
         }
         viewModel.incidenteEnviadaLiveData.observe(viewLifecycleOwner) { incidenteEnviada ->
             if (incidenteEnviada) {
-                // Pasar a la pantalla "Registrado"
-                //val accion = RegistroIncidenteFragDirections.actionRegistroIncidenciasFrag2ToRegistradoFrag()
-                //findNavController().navigate(accion)
                 mostrarAlertaExito()
             }
         }

@@ -21,7 +21,11 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Controla la vista del activity login comensal
+ */
 class LoginComensalActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginComensalBinding
@@ -33,7 +37,7 @@ class LoginComensalActivity : AppCompatActivity() {
         binding = ActivityLoginComensalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Escoder la barra superior
+        // Esconder la barra superior
         supportActionBar?.hide()
 
         // Inicializa el ViewModel
@@ -42,24 +46,25 @@ class LoginComensalActivity : AppCompatActivity() {
         // Desenfocar EditText
         val rootView = findViewById<View>(android.R.id.content)
         rootView.setOnClickListener {
-            // Realiza aquí la acción que desees, como desenfocar o cerrar el teclado
+            // Realiza aquí la acción de desenfocar y cerrar el teclado
             binding.etUsuario.clearFocus()
             binding.etPassword.clearFocus()
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(rootView.windowToken, 0)
         }
+        // Verificar si un usuario ha iniciado sesión
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
         val isLoggedInR = sharedPreferences.getBoolean("isLoggedInR", false)
 
         if (isLoggedIn) {
-
-            // El usuario no ha iniciado sesión previamente, redirige a la loginActivity
+            // El usuario no ha iniciado sesión previamente, redirige a la MainActivity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
         if (isLoggedInR){
+            // El usuario no ha iniciado sesión previamente, redirige a la MenuResponsableActivity
             val intent = Intent(this, MenuResponsableActivity::class.java)
             startActivity(intent)
             finish()
@@ -77,14 +82,7 @@ class LoginComensalActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             postData(binding.etUsuario.text.toString(), binding.etPassword.text.toString())
-            //menuInicial()
-            /*
-            val text = binding.etUsuario.text.toString()
-            val myImageView: ImageView = findViewById(R.id.ivCodigoQR)
 
-            val encoder = BarcodeEncoder()
-            val bitmap = encoder.encodeBitmap(text, BarcodeFormat.QR_CODE, 400, 400)
-            myImageView.setImageBitmap(bitmap)*/
         }
         binding.btnRegistrar.setOnClickListener {
             val url = Uri.parse("http://54.197.177.119:8080/comedor/registro.html") //PagWeb

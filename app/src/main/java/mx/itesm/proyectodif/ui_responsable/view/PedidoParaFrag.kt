@@ -98,43 +98,13 @@ class PedidoParaFrag : Fragment() {
 
     }
 
-    // creating a variable for array list and context.
-    private val comensalArrayList: ArrayList<Comensal>? = null
-/*
-    private fun filter(text: String) {
-        // creating a new array list to filter our data.
-        val filteredlist = ArrayList<Comensal>()
-
-        // running a for loop to compare elements.
-        if (comensalArrayList != null) {
-            for (item in comensalArrayList) {
-                // checking if the entered string matched with any item of our recycler view.
-                if (item.nombre.lowercase(Locale.ROOT).contains(text.lowercase(Locale.getDefault()))) {
-                    // if the item is matched we are
-                    // adding it to our filtered list.
-                    filteredlist.add(item)
-                }
-            }
-        }
-        if (filteredlist.isEmpty()) {
-            // if no item is added in filtered list we are
-            // displaying a toast message as no data found.
-            Toast.makeText(context, "Dato no encontrado", Toast.LENGTH_SHORT).show()
-        } else {
-            // at last we are passing that filtered
-            // list to our adapter class.
-            adaptadorComensal?.filterList(filteredlist)
-        }
-    }*/
-
 
     private fun registrarObservables() {
         viewModel.listaComedores.observe(viewLifecycleOwner){ lista ->
             val arrServicios =  lista.toTypedArray()
             binding.spComedor.adapter = ArrayAdapter(requireContext(),
                 R.layout.spinner_items_customed, arrServicios)
-            // Apagar el progress bar
-            // binding.pbDescarga.visibility = View.INVISIBLE
+
         }
     }
 
@@ -160,8 +130,6 @@ class PedidoParaFrag : Fragment() {
             }
 
 
-            //val accion = RegistrarRacionesFragDirections.actionRegistrarRacionesFrag2ToRegistradoFrag()
-            //findNavController().navigate(accion)
         }
         viewModel.enviadaLiveData.observe(viewLifecycleOwner) { encuestaEnviada ->
             if (encuestaEnviada) {

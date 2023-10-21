@@ -25,6 +25,12 @@ import mx.itesm.proyectodif.ui_comensal.view.InfoFrag
 import mx.itesm.proyectodif.ui_comensal.view.InicioFrag
 import mx.itesm.proyectodif.ui_comensal.viewmodel.CodigoQRVM
 
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Controla la vista del navegacion_inicio(fragmento inicio),
+ * navegacion_mapa(fragmento mapa), navegacion_info(fragmento info)
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -56,21 +62,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        // Pasar datos
-        //val usuario = intent.getStringExtra("EXTRA_USER")
-        //Toast.makeText(this,"ID Usuario: " + usuario, Toast.LENGTH_LONG).show()
-        /*
-        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
-
-        if (!isLoggedIn) {
-            // La sesión no está activa, redirige a la LoginActivity.
-            val intent = Intent(this, LoginComensalActivity::class.java)
-            startActivity(intent)
-            finish()
-        }*/
-        // Generar código QR
 
 
     }

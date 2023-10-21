@@ -15,6 +15,11 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+// VIEWMODEL
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ */
 class RegistroIncidenteVM : ViewModel() {
 
     // Variables liveData

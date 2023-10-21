@@ -21,6 +21,11 @@ import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import mx.itesm.proyectodif.databinding.ActivityMenuResponsableBinding
 
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Controla la vista del activity menu responsable
+ */
 class MenuResponsableActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuResponsableBinding
@@ -41,16 +46,6 @@ class MenuResponsableActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-
-        //binding = ActivityMenuResponsableBinding.inflate(layoutInflater)
-        //setContentView(binding.root)
-
-        //supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment,
-        //    InicioResponsableFrag()
-        //).commit()
-
-        //registrarEventos()
-        //replaceFragment(InicioResponsableFrag())
 
     }
 
@@ -82,28 +77,4 @@ class MenuResponsableActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
 
-    private fun registrarEventos() {
-        /*binding.btnAgregarQR.setOnClickListener {
-            /*val menu = InicioResponsableFrag()
-            val fragment : Fragment? =
-
-            supportFragmentManager.findFragmentByTag(InicioResponsableFrag::class.java.simpleName)
-
-            if (fragment !is InicioResponsableFrag){
-                supportFragmentManager.beginTransaction()
-                    .add(menu, InicioResponsableFrag::class.java.simpleName)
-                    .commit()
-            }*/
-            replaceFragment(RegistrarRacionesFrag())
-
-        }*/
-
-    }
-/*
-    private fun replaceFragment(fragment: Fragment){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
-        fragmentTransaction.commit()
-    }*/
 }

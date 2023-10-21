@@ -40,19 +40,16 @@ class InicioFrag : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val inicioViewModel =
-            ViewModelProvider(this).get(InicioVM::class.java)
+        ViewModelProvider(this).get(InicioVM::class.java)
 
         viewModel = ViewModelProvider(this).get(InicioVM::class.java)
 
+        // Acceder a las preferencias compartidas de la actividad
         binding = FragmentInicioBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         configurarAdaptador()
-        /*val textView: TextView = binding.textHome
-        inicioViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }*/
+
         return root
     }
 
@@ -84,9 +81,5 @@ class InicioFrag : Fragment() {
             adaptadorAviso = AdaptadorAviso(requireContext(), arrAviso)
             binding.rvNoticias.adapter = adaptadorAviso
         }
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        //binding = null
     }
 }

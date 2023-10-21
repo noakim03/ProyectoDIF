@@ -43,18 +43,16 @@ class InicioResponsableFrag : Fragment() {
         binding = FragmentInicioResponsableBinding.inflate(layoutInflater)
         val root: View = binding.root
 
-        //val view = inflater.inflate(R.layout.fragment_inicio_responsable, container, false)
-        //val tvIDResp: TextView = root.findViewById(R.id.tvIDResp)
-
+        // Acceder a las preferencias compartidas de la actividad
         val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val usuario = sharedPreferences.getString("ID_RESP", "")
+
         //val usuario = requireActivity().intent.getStringExtra("ID_RESP")
         //tvIDResp.text = "Mi ID: $usuario"  // Cambiar texto del tvID
         binding.tvIDResp.text = "Mi ID: $usuario"
 
         return root
 
-        //return inflater.inflate(R.layout.fragment_inicio_responsable, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -134,8 +132,8 @@ class InicioResponsableFrag : Fragment() {
     }
     private fun cerrarSesion() {
         //findNavController().navigate(R.id.loginResponsableActivity)
-        // Redirigir al usuario a la pantalla de inicio de sesión.
 
+        // Redirigir al usuario a la pantalla de inicio de sesión.
         val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putBoolean("isLoggedInR", false)

@@ -11,7 +11,11 @@ import mx.itesm.proyectodif.R
 import mx.itesm.proyectodif.databinding.RenglonComedorBinding
 import mx.itesm.proyectodif.ui_comensal.model.EstadoComedor
 
-
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Adaptador del RecyclerView
+ */
 class AdaptadorComedor(private val contexto: Context, var arrComedores: Array<EstadoComedor>)
     : RecyclerView.Adapter<AdaptadorComedor.RenglonComedor>()
 {

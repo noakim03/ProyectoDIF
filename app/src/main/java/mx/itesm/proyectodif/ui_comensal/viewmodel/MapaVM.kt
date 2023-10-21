@@ -11,12 +11,12 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ */
 class MapaVM : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
-    }
-    val text: LiveData<String> = _text
 
     // Variables liveData
     val estadoComedor = MutableLiveData<List<EstadoComedor>>()

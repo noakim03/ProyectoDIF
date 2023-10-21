@@ -54,23 +54,14 @@ class InfoFrag : Fragment() {
         binding = FragmentInformacionBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
+        // Acceder a las preferencias compartidas de la actividad
         val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val usuario = sharedPreferences.getString("ID_COMENSAL", "")
-        //(requireActivity() as AppCompatActivity).supportActionBar?.hide()
-        //val usuario = requireActivity().intent.getStringExtra("ID_COMENSAL")
         binding.tvID.text = "ID: $usuario"  // Cambiar texto del tvID
 
-        //val idComensal = arguments?.getString("ID_COMENSAL")
+        //(requireActivity() as AppCompatActivity).supportActionBar?.hide()
+        //val usuario = requireActivity().intent.getStringExtra("ID_COMENSAL")
 
-       // binding.tvID.text = "ID: $idComensal"  // Cambiar texto del tvID
-
-
-
-        /*val textView: TextView = binding.textNotifications
-        infoViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }*/
         return root
     }
 
@@ -152,12 +143,4 @@ class InfoFrag : Fragment() {
     }
 
 
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        //_binding = null
-
-        //(requireActivity() as AppCompatActivity).supportActionBar?.show()
-
-    }
 }

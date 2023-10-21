@@ -65,6 +65,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("com.google.android.gms:play-services-maps:18.1.0")
 
+    // Material Design Components
     implementation("com.google.android.material:material:1.9.0")
 
     // ZXING
@@ -75,6 +76,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-code-scanner:16.1.0")
     implementation("com.google.android.gms:play-services-base:18.2.0")
 
+    // PDFView
     implementation("com.dmitryborodin:pdfview-android:1.1.0")
 
     testImplementation("junit:junit:4.13.2")

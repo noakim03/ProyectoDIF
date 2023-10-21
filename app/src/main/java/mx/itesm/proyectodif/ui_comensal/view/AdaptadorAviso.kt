@@ -13,7 +13,11 @@ import mx.itesm.proyectodif.databinding.RenglonNoticiaBinding
 import mx.itesm.proyectodif.ui_comensal.model.Aviso
 import mx.itesm.proyectodif.ui_comensal.model.EstadoComedor
 
-
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Adaptador del RecyclerView
+ */
 class AdaptadorAviso(private val contexto: Context, var arrAviso: Array<Aviso>)
     : RecyclerView.Adapter<AdaptadorAviso.RenglonAviso>()
 {

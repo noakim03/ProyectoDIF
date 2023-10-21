@@ -17,6 +17,11 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Controla la vista del activity responsable comensal
+ */
 class LoginResponsableActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginResponsableBinding
@@ -26,24 +31,25 @@ class LoginResponsableActivity : AppCompatActivity() {
         binding = ActivityLoginResponsableBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Escoder la barra superior
+        // Esconder la barra superior
         supportActionBar?.hide()
 
         // Desenfocar EditText
         val rootView = findViewById<View>(android.R.id.content)
         rootView.setOnClickListener {
-            // Realiza aquí la acción que desees, como desenfocar o cerrar el teclado
+            // Realiza aquí la acción de desenfocar y cerrar el teclado
             binding.etResponsable.clearFocus()
             binding.etPasswordR.clearFocus()
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(rootView.windowToken, 0)
         }
+        // Verificar si un usuario ha iniciado sesión
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedInR", false)
 
         if (isLoggedIn) {
-            val userID = sharedPreferences.getString("userID", "") // Recuperar el ID del usuario
-            // El usuario no ha iniciado sesión previamente, redirige a la loginActivity
+            sharedPreferences.getString("userID", "") // Recuperar el ID del usuario
+            // El usuario no ha iniciado sesión previamente, redirige a la MenuResponsableActivity
             val intent = Intent(this, MenuResponsableActivity::class.java)
             startActivity(intent)
             finish()
@@ -56,7 +62,6 @@ class LoginResponsableActivity : AppCompatActivity() {
 
     private fun registrarEventos() {
         binding.btnLoginR.setOnClickListener {
-            //menuInicial()
             if (binding.etResponsable.text.toString().isEmpty() || binding.etPasswordR.text.toString().isEmpty()){
                 Toast.makeText(this, "Ingrese los valores", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
@@ -129,7 +134,7 @@ class LoginResponsableActivity : AppCompatActivity() {
     }
 
     private fun loginComensal() {
-        // LoginResponsableActivity
+        // LoginComensalActivity
         val i = Intent(this, LoginComensalActivity::class.java)
         startActivity(i)
     }

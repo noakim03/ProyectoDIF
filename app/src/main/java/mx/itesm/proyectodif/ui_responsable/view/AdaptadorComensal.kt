@@ -18,7 +18,11 @@ import mx.itesm.proyectodif.ui_comensal.model.EstadoComedor
 import mx.itesm.proyectodif.ui_responsable.model.Comensal
 import java.util.Locale
 
-
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Adaptador del RecyclerView
+ */
 class AdaptadorComensal(private val contexto: Context, var arrComensal: Array<Comensal>)
     : RecyclerView.Adapter<AdaptadorComensal.RenglonComensal>()
 {

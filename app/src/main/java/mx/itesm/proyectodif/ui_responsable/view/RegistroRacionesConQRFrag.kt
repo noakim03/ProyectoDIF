@@ -23,7 +23,12 @@ import mx.itesm.proyectodif.ui_comensal.model.ListaComedor
 import mx.itesm.proyectodif.ui_comensal.viewmodel.CalificarServicioVM
 import mx.itesm.proyectodif.ui_responsable.model.Asistencia
 import mx.itesm.proyectodif.ui_responsable.viewmodel.RegistroRacionesConQRVM
-
+// VISTA
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Controla la vista del fragmento registrar raciones con qr
+ */
 class RegistroRacionesConQRFrag : Fragment() {
 
     /*companion object {
