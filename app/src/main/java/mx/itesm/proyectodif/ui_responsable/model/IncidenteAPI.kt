@@ -6,6 +6,11 @@ import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * API para reportar un incidente
+ */
 interface IncidenteAPI {
     @Headers("Content-Type: application/json")
     @POST("/incidente")

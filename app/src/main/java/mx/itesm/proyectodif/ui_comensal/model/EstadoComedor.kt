@@ -2,7 +2,11 @@ package mx.itesm.proyectodif.ui_comensal.model
 
 import com.google.gson.annotations.SerializedName
 
-//ListaComedorAPI
+
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ */
 data class EstadoComedor(
     @SerializedName("Estado")
     var estado: String,

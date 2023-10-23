@@ -34,11 +34,6 @@
             app:destination="@id/datoContactoFrag" />
     </fragment>
     <fragment
-        android:id="@+id/loginComensalFrag"
-        android:name="mx.itesm.proyectodif.ui_comensal.view.LoginComensalFrag"
-        android:label="fragment_login_comensal"
-        tools:layout="@layout/fragment_login_comensal" />
-    <fragment
         android:id="@+id/codigoQRFrag"
         android:name="mx.itesm.proyectodif.ui_comensal.view.CodigoQRFrag"
         android:label="Mi código QR"

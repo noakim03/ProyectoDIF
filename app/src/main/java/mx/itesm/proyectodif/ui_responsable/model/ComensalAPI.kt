@@ -5,6 +5,11 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * API para arrojar la lista de todos los comensales
+ */
 interface ComensalAPI {
     @GET("/getcomensales")
     fun descargarListaComensales(): Call<List<Comensal>>

@@ -2,6 +2,12 @@ package mx.itesm.proyectodif.ui_responsable.model
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * ComensalAPI
+ */
+
 data class Comensal(
     @SerializedName("IDComensal")
     var idComensal: Int,

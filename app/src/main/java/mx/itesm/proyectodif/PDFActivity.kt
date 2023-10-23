@@ -7,7 +7,11 @@ import com.pdfview.PDFView
 import mx.itesm.proyectodif.databinding.ActivityMainBinding
 import mx.itesm.proyectodif.databinding.ActivityPdfactivityBinding
 
-
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * Controla la vista del pdf activity
+ */
 class PDFActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPdfactivityBinding

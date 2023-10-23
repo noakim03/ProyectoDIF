@@ -30,37 +30,17 @@
         android:id="@+id/registrarRacionesFrag2"
         android:name="mx.itesm.proyectodif.ui_responsable.view.RegistrarRacionesFrag"
         android:label="Registro de raciones"
-        tools:layout="@layout/fragment_registrar_raciones">
-        <action
-            android:id="@+id/action_registrarRacionesFrag2_to_registradoFrag"
-            app:destination="@id/registradoFrag" />
-    </fragment>
+        tools:layout="@layout/fragment_registrar_raciones"/>
     <fragment
         android:id="@+id/racionDonadaFrag2"
         android:name="mx.itesm.proyectodif.ui_responsable.view.RacionDonadaFrag"
         android:label="Donar raciones"
-        tools:layout="@layout/fragment_racion_donada">
-        <action
-            android:id="@+id/action_racionDonadaFrag2_to_registradoFrag2"
-            app:destination="@id/registradoFrag" />
-    </fragment>
+        tools:layout="@layout/fragment_racion_donada"/>
     <fragment
         android:id="@+id/registroIncidenciasFrag2"
         android:name="mx.itesm.proyectodif.ui_responsable.view.RegistroIncidenteFrag"
         android:label="Registrar incidencias"
-        tools:layout="@layout/fragment_registro_incidencias">
-        <action
-            android:id="@+id/action_registroIncidenciasFrag2_to_registradoFrag"
-            app:destination="@id/registradoFrag" />
-    </fragment>
-    <fragment
-        android:id="@+id/registradoFrag"
-        android:name="mx.itesm.proyectodif.ui_responsable.view.RegistradoFrag"
-        tools:layout="@layout/fragment_registrado">
-        <action
-            android:id="@+id/action_registradoFrag_to_inicioResponsableFrag"
-            app:destination="@id/inicioResponsableFrag" />
-    </fragment>
+        tools:layout="@layout/fragment_registro_incidencias"/>
     <fragment
         android:id="@+id/registroRacionesConQRFrag"
         android:name="mx.itesm.proyectodif.ui_responsable.view.RegistroRacionesConQRFrag"
@@ -76,11 +56,7 @@
         android:id="@+id/pedidoParaFrag"
         android:name="mx.itesm.proyectodif.ui_responsable.view.PedidoParaFrag"
         android:label="Registro de raciones para otros"
-        tools:layout="@layout/fragment_pedido_para">
-        <action
-            android:id="@+id/action_pedidoParaFrag_to_registradoFrag"
-            app:destination="@id/registradoFrag" />
-    </fragment>
+        tools:layout="@layout/fragment_pedido_para"/>
     <activity
         android:id="@+id/loginResponsableActivity"
         android:name="mx.itesm.proyectodif.LoginResponsableActivity"

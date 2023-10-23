@@ -2,8 +2,6 @@ package mx.itesm.proyectodif.ui_responsable.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import mx.itesm.proyectodif.ui_comensal.model.EstadoComedor
-import mx.itesm.proyectodif.ui_comensal.model.EstadoComedorAPI
 import mx.itesm.proyectodif.ui_comensal.model.ListaComedor
 import mx.itesm.proyectodif.ui_comensal.model.ListaComedorAPI
 import mx.itesm.proyectodif.ui_comensal.model.RespuestaServidor
@@ -11,8 +9,6 @@ import mx.itesm.proyectodif.ui_responsable.model.Asistencia
 import mx.itesm.proyectodif.ui_responsable.model.AsistenciaAPI
 import mx.itesm.proyectodif.ui_responsable.model.Comensal
 import mx.itesm.proyectodif.ui_responsable.model.ComensalAPI
-import mx.itesm.proyectodif.ui_responsable.model.RacionDonAPI
-import mx.itesm.proyectodif.ui_responsable.model.RespuestaServidorComensal
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

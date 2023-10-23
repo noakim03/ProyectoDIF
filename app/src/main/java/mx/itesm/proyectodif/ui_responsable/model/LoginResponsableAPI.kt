@@ -6,6 +6,11 @@ import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * API para el login de un responsable
+ */
 interface LoginResponsableAPI {
     @Headers("Content-Type: application/json")
     @POST("/loginres")

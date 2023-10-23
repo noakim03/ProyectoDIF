@@ -1,5 +1,10 @@
 package mx.itesm.proyectodif.ui_responsable.model
 
+/**
+ * @author Noh Ah Kim Kwon
+ *
+ * AsistenciaAPI
+ */
 data class Asistencia(
     var idComensal: Int,
     var idCom: Int,
